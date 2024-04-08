@@ -1,0 +1,1 @@
+(()=>{function o(o,l){return o+l}console.log("Hello World"),o(20,30),o(122,888)})();
