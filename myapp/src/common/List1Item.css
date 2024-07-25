@@ -1,0 +1,21 @@
+.list1-item{
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    height: 40px;
+    justify-content:center;
+    align-items: center;
+}
+.day{
+    font-size: 12px;
+    color: #000000
+}
+.list1-item h4.uname,
+.list1-item p.day {
+  margin-top: 0;  
+  margin-bottom: 0; 
+}
+
+.list1-item h4.uname + p.day {
+  margin-top: 5px; 
+}

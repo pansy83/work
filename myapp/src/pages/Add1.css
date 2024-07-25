@@ -1,0 +1,9 @@
+.arrow{
+    width:100px;
+}
+.add1{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

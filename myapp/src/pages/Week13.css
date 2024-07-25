@@ -1,0 +1,20 @@
+.box1 {
+    position: absolute;
+    left: 30px;
+    top: 140px;
+    width: 360px;
+    height: 690px;
+    background-color:white;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+  }
+
+ .grid-item {
+    border: 1px   black;
+  
+  }
+  .item{
+    background-color: pink;
+    border-radius: 1px;
+  }
