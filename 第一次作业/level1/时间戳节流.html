@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.input2{
+    width:500px;
+    height: 200px;
+}
+.input3{
+    width: 400px;
+    height: 150px;
+    border: 3px solid pink;
+}
+</style>
+<body>
+    <div>
+        <textarea class="input2"></textarea>
+    </div>    
+        <script>
+        
+        //用时间戳实现函数节流
+        function callback(){
+            console.log('222')
+        }
+      function throttle(callback,time=900){
+           let t;
+           
+        return function(...args){
+            if(!t||Date.now()-t>=time){
+                callback.apply(this,args);
+                 t=Date.now()
+            }
+        }
+      }
+     let input2=document.querySelector('.input2');
+     const res=throttle(callback,800);
+     input2.addEventListener('click',res);
+      window.onresize=throttle(function(){
+           console.log('okk') 
+      },1000);
+    </script>
+</body>
+</html>

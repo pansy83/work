@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.btn1{
+   width: 300px;
+   height: 60px;
+   background-color: aqua;
+}
+.btn2{
+    width: 200px;
+    height: 50px;
+    background-color:pink;
+   }
+</style>
+<body>
+   <div class="container">
+    <button class="btn1"></button>
+    <button class="btn2"></button>
+   </div>
+    <script>
+
+    let arr=['hello','nihao','redrock','fn']
+    
+   function kn(){
+     let res=arr.reduce((total,cur)=>{
+        return total+cur;
+        
+     })
+     console.log(res)
+   }
+   
+   //上升到通用函数 就要考虑this指向的问题
+   function debounce2(func,duration=500){
+       let timerId;
+    //箭头函数里面没有this
+    return function(...args){
+         
+         clearTimeout(timerId)
+         timerId=setTimeout(()=>{
+              func.apply(this,args);
+         },duration)
+    };
+   }
+   
+   const d_layout=debounce2(kn,600);
+   let btn1=document.querySelector('.btn1')
+
+  btn1.addEventListener('click',d_layout)
+  
+ 
+    </script>
+</body>
+</html>

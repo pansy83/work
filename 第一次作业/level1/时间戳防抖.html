@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .text{
+        width: 500px;
+        height: 200px;
+        border:3px solid blueviolet;
+    }
+</style>
+<body>
+    <form class="form">
+      <textarea class="text">
+
+      </textarea>
+    </form>
+<script>
+        //用时间戳实现函数防抖
+        function callback(){
+            console.log('good')
+        }
+      function debounce(callback,time=900){
+           let t;
+           
+        return function(...args){
+            if(!t||Date.now()-t>=time){
+            clearTimeout(t)
+            t=Date.now()
+        }
+        t=setTimeout(()=>{
+            callback.apply(this,arguments)
+        
+        },time)
+        }
+      }
+     let text=document.querySelector('.text');
+     const res=debounce(callback,800);
+     text.addEventListener('click',res);
+</script>
+</body>
+</html>

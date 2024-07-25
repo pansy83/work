@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .input3{
+        width: 500px;
+        height: 200px;
+    }
+</style>
+<body>
+       <div>
+        <textarea class="input3"></textarea>
+       </div>
+    <script>
+         //  用定时器实现函数节流
+     let arr1=['Do','not','go','gentle','into','that','good','night'];
+     function add(){
+       let res1= arr1.reduce((total,cur)=>{
+            return total+cur;
+        })
+        console.log(res1)
+        console.log('2222')
+     }
+     function throttle2(fn, delay = 500) {
+  
+         let timer;
+    
+    return function(...args) {
+        if (timer) {
+            return;
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, args)
+            timer = null//函数节流最后要将null赋值timer
+        }, delay)
+    }
+}
+let input3=document.querySelector('.input3');
+const t2=throttle2(add,2000);
+input3.addEventListener('click',t2);
+    </script>
+</body>
+</html>
